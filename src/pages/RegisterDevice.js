@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Page from "../components/Page";
+import Page from "../components/PageComponent";
 import styled from "styled-components";
 
 const Heading = styled.h1`
@@ -38,7 +38,6 @@ const RegisterDevice = () => {
     <Page>
       <>
         <Heading>Register new device</Heading>
-
         <form
           onSubmit={handleSubmit}
           style={{

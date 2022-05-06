@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./pages/StartPage";
-import RegisterDevice from "./pages/RegisterDevices";
+import RegisterDevice from "./pages/RegisterDevice";
 import { ThemeProvider } from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
