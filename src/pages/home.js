@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Main from "../components/main";
 import Sidebar from "../components/sidebar";
 import logo from "../assets/milwormlogo.jpg";
+import Page from "../components/page";
 
 const Wrapper = styled.div`
   display: grid;
@@ -12,13 +13,12 @@ const Wrapper = styled.div`
 
 const Home = () => {
   return (
-    <div style={{ backgroundColor: "black" }}>
-      <img src={logo} alt="lol" />
+    <Page>
       <Wrapper>
         <Sidebar />
         <Main />
       </Wrapper>
-    </div>
+    </Page>
   );
 };
 
