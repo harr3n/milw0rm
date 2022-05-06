@@ -1,5 +1,25 @@
 import React, { useState } from "react";
 import Page from "../components/page";
+import styled from "styled-components";
+
+const Heading = styled.h1`
+  color: ${(props) => props.theme.green};
+`;
+
+const Input = styled.input`
+  border: none;
+  backgroundcolor: transparent;
+  borderbottom: 2px solid ${(props) => props.theme.green};
+  color: ${(props) => props.theme.green};
+  outline: none;
+`;
+
+const Submit = styled.button`
+  appearance: none;
+  border: none;
+  backgroundcolor: transparent;
+  color: ${(props) => props.theme.green};
+`;
 
 const RegisterDevice = () => {
   const [serialNumber, setSerialNumber] = useState("");
@@ -12,7 +32,7 @@ const RegisterDevice = () => {
   return (
     <Page>
       <>
-        <h1 style={{ color: "green" }}>Register new device</h1>
+        <Heading>Register new device</Heading>
 
         <form
           onSubmit={handleSubmit}
@@ -23,31 +43,14 @@ const RegisterDevice = () => {
             maxWidth: "35%",
           }}
         >
-          <input
+          <Input
             type="text"
             value={serialNumber}
             onChange={(e) => setSerialNumber(e.target.value)}
             placeholder="Enter serial number"
-            style={{
-              border: "none",
-              backgroundColor: "transparent",
-              borderBottom: "2px solid green",
-              color: "green",
-              outline: "none",
-            }}
           />
 
-          <button
-            type="submit"
-            style={{
-              appearance: "none",
-              border: "none",
-              backgroundColor: "transparent",
-              color: "green",
-            }}
-          >
-            {"REGISTER DEVICE >"}
-          </button>
+          <Submit type="submit">{"REGISTER DEVICE >"}</Submit>
         </form>
       </>
     </Page>

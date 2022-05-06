@@ -8,7 +8,6 @@ import { climateData } from "../api/climate";
 
 const StyledMain = styled.main`
   background-color: black;
-  margin: 1rem;
 `;
 
 const Grid = styled.div`
@@ -21,7 +20,7 @@ const GridItem = styled.div`
   display: flex;
   width: 25rem;
   min-height: 5rem;
-  color: green;
+  color: ${(props) => props.theme.green};
 `;
 
 const GridItemInformation = styled.div`
@@ -42,14 +41,11 @@ const getRandomIcon = (status) => {
   const Icon = icons[rand];
 
   const StyledIcon = styled(Icon)`
-    /* fill: green; */
+    height: 5rem;
+    fill: ${(props) => (props.status === "stable" ? "green" : "red")};
   `;
-  return (
-    <StyledIcon
-      style={{ height: "5rem", fill: status === "stable" ? "green" : "red" }}
-      status={status}
-    />
-  );
+
+  return <StyledIcon status={status} />;
 };
 
 const Main = () => {

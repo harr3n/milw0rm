@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 2fr 4fr;
   height: 100vh;
-  border-top: 10px solid green;
+  border-top: 10px solid ${(props) => props.theme.green};
 `;
 
 const Home = () => {

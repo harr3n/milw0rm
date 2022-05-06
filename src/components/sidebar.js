@@ -5,11 +5,11 @@ import format from "date-fns/format";
 
 const StyledSidebar = styled.div`
   background-color: black;
-  border-right: 1px solid green;
+  border-right: 1px solid ${(props) => props.theme.green};
 `;
 
 const Table = styled.table`
-  color: green;
+  color: ${(props) => props.theme.green};
 `;
 
 const TableCell = styled.td`
@@ -22,7 +22,7 @@ const Sidebar = () => {
       <Table>
         <thead>
           <tr>
-            <TableCell as="th">Asset ID</TableCell>
+            <TableCell as="th">ID</TableCell>
             <TableCell as="th">Centrifuge</TableCell>
             <TableCell as="th">Rotations</TableCell>
             <TableCell as="th">Temperature</TableCell>
