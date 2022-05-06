@@ -1,24 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import StartPage from "./pages/StartPage";
 import RegisterDevice from "./pages/RegisterDevices";
 import { ThemeProvider } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Open-Sans, Helvetica, Sans-Serif;
+  }
+`;
 
 const theme = {
-  green: "#31A189",
+  green: "green",
   red: "red",
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<StartPage />} />
           <Route path="/register-device" element={<RegisterDevice />} />
           <Route
             path="*"

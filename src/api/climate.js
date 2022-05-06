@@ -23,7 +23,7 @@ export const climateData = [
     pressure: "101.5",
     time: "2019-01-01T00:00:00.000Z",
     factoryFloor: "A-12",
-    status: "stable",
+    status: "error",
     modbus: "active",
     node: "connected",
   },
