@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const climateData = [
   {
     assetId: "PLC001",
@@ -62,3 +64,22 @@ const getClimateData = () => {
 };
 
 export default getClimateData;
+
+export const getAllDevices = async () => {
+  const { data } = await axios("http://40.113.40.135/api/assets/");
+  return data;
+};
+
+export const registerDevice = async (serialNumber, assetID) => {
+  const data = {
+    serialNumber,
+    assetID,
+  };
+  const res = await axios.post(
+    "http://40.113.40.135/api/assets/registerDevice",
+    data
+  );
+
+  console.log(res);
+  return res;
+};

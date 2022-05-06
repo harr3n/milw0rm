@@ -4,8 +4,6 @@ import { ReactComponent as IconOne } from "../assets/IconOne.svg";
 import { ReactComponent as IconTwo } from "../assets/IconTwo.svg";
 import { ReactComponent as IconThree } from "../assets/IconThree.svg";
 
-import { climateData } from "../api/climate";
-
 const StyledMain = styled.main`
   background-color: black;
 `;
@@ -42,37 +40,37 @@ const getRandomIcon = (status) => {
 
   const StyledIcon = styled(Icon)`
     height: 5rem;
-    fill: ${(props) => (props.status === "stable" ? "green" : "red")};
+    fill: ${(props) => (props.status === "OPERATIONAL" ? "green" : "red")};
   `;
 
   return <StyledIcon status={status} />;
 };
 
-const Main = () => {
+const Main = ({ devices }) => {
   return (
     <StyledMain>
       <Grid>
-        {climateData.map((item) => {
+        {devices.map((device) => {
           return (
-            <GridItem key={item.assetId}>
-              {getRandomIcon(item.status)}
+            <GridItem key={device.assetID}>
+              {getRandomIcon(device.assetStatus)}
               <div style={{ width: "100%", marginLeft: "1rem" }}>
                 <GridItemInformation>
                   <Label>Factory Floor: </Label>
-                  <span>{item.factoryFloor}</span>
+                  <span>{device.factoryFloor}</span>
                 </GridItemInformation>
 
                 <GridItemInformation>
                   <Label>Status: </Label>
-                  <span>{item.status}</span>
+                  <span>{device.assetStatus}</span>
                 </GridItemInformation>
                 <GridItemInformation>
                   <Label>Modbus: </Label>
-                  <span>{item.modbus}</span>
+                  <span>{device.modbusStatus}</span>
                 </GridItemInformation>
                 <GridItemInformation>
                   <Label>Node: </Label>
-                  <span>{item.node}</span>
+                  <span>{device.nodeStatus}</span>
                 </GridItemInformation>
               </div>
             </GridItem>

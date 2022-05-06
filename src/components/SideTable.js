@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { climateData } from "../api/climate";
 
 import format from "date-fns/format";
 
@@ -16,7 +15,8 @@ const TableCell = styled.td`
   padding: 0.5rem;
 `;
 
-const Sidebar = () => {
+const Sidebar = ({ devices }) => {
+  console.log(devices);
   return (
     <StyledSidebar>
       <Table>
@@ -28,19 +28,19 @@ const Sidebar = () => {
             <TableCell as="th">Temperature</TableCell>
             <TableCell as="th">Humidity</TableCell>
             <TableCell as="th">Pressure</TableCell>
-            <TableCell as="th">Time</TableCell>
+            <TableCell as="th">Updated</TableCell>
           </tr>
         </thead>
         <tbody>
-          {climateData.map((item) => (
-            <tr key={item.assetId}>
-              <TableCell>{item.assetId}</TableCell>
-              <TableCell>{item.centrifuge}</TableCell>
-              <TableCell>{item.rotations}</TableCell>
-              <TableCell>{`${item.temperature} °C`}</TableCell>
-              <TableCell>{item.humidity}</TableCell>
-              <TableCell>{item.pressure}</TableCell>
-              <TableCell>{formatTimestamp(item.time)}</TableCell>
+          {devices.map((device) => (
+            <tr key={device.assetID}>
+              <TableCell>{device.assetID}</TableCell>
+              <TableCell>{device.centrifuge}</TableCell>
+              <TableCell>{device.rotations}</TableCell>
+              <TableCell>{device.temperature}</TableCell>
+              <TableCell>{device.humidity}</TableCell>
+              <TableCell>{device.pressure}</TableCell>
+              <TableCell>{formatTimestamp(device.lastReportedTime)}</TableCell>
             </tr>
           ))}
         </tbody>
