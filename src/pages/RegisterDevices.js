@@ -8,17 +8,22 @@ const Heading = styled.h1`
 
 const Input = styled.input`
   border: none;
-  backgroundcolor: transparent;
-  borderbottom: 2px solid ${(props) => props.theme.green};
+  background-color: transparent;
+  border-bottom: 2px solid ${(props) => props.theme.green};
   color: ${(props) => props.theme.green};
   outline: none;
+  height: 2rem;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 const Submit = styled.button`
   appearance: none;
   border: none;
-  backgroundcolor: transparent;
+  background-color: transparent;
   color: ${(props) => props.theme.green};
+  font-weight: bold;
+  font-size: 18px;
 `;
 
 const RegisterDevice = () => {
