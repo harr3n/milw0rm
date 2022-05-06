@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Main from "../components/Dashboard";
-import Sidebar from "../components/SideBar";
+import Sidebar from "../components/SideTable";
 import Page from "../components/PageComponent";
 
 const Wrapper = styled.div`
