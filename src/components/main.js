@@ -40,7 +40,16 @@ const icons = [IconOne, IconTwo, IconThree];
 const getRandomIcon = (status) => {
   const rand = Math.floor(Math.random() * 3 + 1) - 1;
   const Icon = icons[rand];
-  return <Icon style={{ height: "5rem" }} />;
+
+  const StyledIcon = styled(Icon)`
+    /* fill: green; */
+  `;
+  return (
+    <StyledIcon
+      style={{ height: "5rem", fill: status === "stable" ? "green" : "red" }}
+      status={status}
+    />
+  );
 };
 
 const Main = () => {
@@ -50,7 +59,7 @@ const Main = () => {
         {climateData.map((item) => {
           return (
             <GridItem key={item.assetId}>
-              {getRandomIcon()}
+              {getRandomIcon(item.status)}
               <div style={{ width: "100%", marginLeft: "1rem" }}>
                 <GridItemInformation>
                   <Label>Factory Floor: </Label>
