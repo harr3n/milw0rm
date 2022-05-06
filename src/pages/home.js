@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Main from "../components/main";
 import Sidebar from "../components/sidebar";
-import logo from "../assets/milwormlogo.jpg";
 import Page from "../components/page";
 
 const Wrapper = styled.div`
