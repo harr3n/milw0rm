@@ -19,8 +19,6 @@ const Home = () => {
     getAllDevices().then((res) => setDevices(res));
   }, []);
 
-  console.log(devices);
-
   return (
     <Page>
       <Wrapper>
