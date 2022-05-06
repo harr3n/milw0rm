@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Main from "../components/main";
-import Sidebar from "../components/sidebar";
-import Page from "../components/page";
+import Main from "../components/Main";
+import Sidebar from "../components/Sidebar";
+import Page from "../components/Page";
 
 const Wrapper = styled.div`
   display: grid;

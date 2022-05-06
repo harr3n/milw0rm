@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/home";
-import RegisterDevice from "./pages/registerDevice";
+import Home from "./pages/Home";
+import RegisterDevice from "./pages/RegisterDevices";
 import { ThemeProvider } from "styled-components";
 
 const theme = {

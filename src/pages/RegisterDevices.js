@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Page from "../components/page";
+import Page from "../components/Page";
 import styled from "styled-components";
 
 const Heading = styled.h1`
