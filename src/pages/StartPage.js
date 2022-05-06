@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Main from "../components/Dashboard";
 import Sidebar from "../components/SideTable";
 import Page from "../components/PageComponent";
+import { getAllDevices } from "../api/climate";
 
 const Wrapper = styled.div`
   display: grid;
@@ -11,11 +13,19 @@ const Wrapper = styled.div`
 `;
 
 const Home = () => {
+  const [devices, setDevices] = useState([]);
+
+  useEffect(() => {
+    getAllDevices().then((res) => setDevices(res));
+  }, []);
+
+  console.log(devices);
+
   return (
     <Page>
       <Wrapper>
-        <Sidebar />
-        <Main />
+        <Sidebar devices={devices} />
+        <Main devices={devices} />
       </Wrapper>
     </Page>
   );

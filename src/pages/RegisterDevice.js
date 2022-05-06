@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Page from "../components/PageComponent";
 import styled from "styled-components";
+import { registerDevice } from "../api/climate";
 
 const Heading = styled.h1`
   color: ${(props) => props.theme.green};
@@ -26,12 +27,42 @@ const Submit = styled.button`
   font-size: 18px;
 `;
 
+const StatusMessage = styled.span`
+  color: ${(props) =>
+    props.type === "error" ? props.theme.red : props.theme.green};
+`;
+
 const RegisterDevice = () => {
   const [serialNumber, setSerialNumber] = useState("");
+  const [assetID, setAssetID] = useState("");
+  const [status, setStatus] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("POSTING: ", serialNumber);
+    setStatus();
+
+    if (!serialNumber || !assetID) {
+      setStatus({
+        type: "error",
+        message: "Fill in both serial number and asset id",
+      });
+      return;
+    }
+
+    try {
+      await registerDevice(serialNumber, assetID);
+      setStatus({
+        type: "success",
+        message: "Successfully registered new device",
+      });
+      setSerialNumber("");
+      setAssetID("");
+    } catch (e) {
+      setStatus({
+        type: "error",
+        message: "Could not register new device. Try again.",
+      });
+    }
   };
 
   return (
@@ -54,7 +85,17 @@ const RegisterDevice = () => {
             placeholder="Enter serial number"
           />
 
+          <Input
+            type="text"
+            value={assetID}
+            onChange={(e) => setAssetID(e.target.value)}
+            placeholder="Enter asset ID"
+          />
+
           <Submit type="submit">{"REGISTER DEVICE >"}</Submit>
+          {status && (
+            <StatusMessage type={status?.type}>{status?.message}</StatusMessage>
+          )}
         </form>
       </>
     </Page>
